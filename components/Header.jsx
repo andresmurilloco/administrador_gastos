@@ -1,19 +1,24 @@
 import React from 'react';
 import NuevoPresupuesto from '../components/NuevoPresupuesto';
 
-const Header = () => {
+const Header = ({
+  presupuesto,
+  setPresupuesto,
+  isValidPresupuesto,
+  setIsValidPresupuesto}) => {
   return (
-    <header className='contenedor-presupuesto contenedor sombra'>
-       <h1>Control de Gastos</h1>
-       <form action="" className='formulario'>
-        <div className='campo'>
-            <label>Definir Presupuesto</label>
-            <input type="text" placeholder='Añade tu presupuesto' className='nuevo-presupuesto' />
-        </div>
-        <div>
-            <input type="submit" value="Añadir"/>
-        </div>
-       </form>
+    <header>
+       <h1>Planificador de Gastos</h1>
+       {isValidPresupuesto ? (
+        <p>Control Presupuesto</p>
+       ) : (
+        <NuevoPresupuesto
+          presupuesto = {presupuesto}
+          setPresupuesto = {setPresupuesto}
+          isValidPresupuesto = {isValidPresupuesto}
+          setIsValidPresupuesto = {setIsValidPresupuesto}
+        />
+       )}
     </header>
   )
 }
