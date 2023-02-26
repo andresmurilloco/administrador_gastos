@@ -40,9 +40,17 @@ function App() {
   }
 
   const guardarGasto=gasto=>{
-    gasto.id = generarId();
-    gasto.fecha = Date.now();
-    setGastos([...gastos, gasto]);
+    if(gasto.id){
+      //Actualizar
+      const gastosActualizados = gastos.map(gastoState => gastoState.id === gasto.id ? gasto : gastoState);
+      setGastos(gastosActualizados);
+    } else{
+      //Nuevo
+      gasto.id = generarId();
+      gasto.fecha = Date.now();
+      setGastos([...gastos, gasto]);
+      setGastoEditar({});
+    }
     ocultarModal();
   }
 
@@ -51,7 +59,12 @@ function App() {
     setTimeout(() => {
         setModal(false);
     }, 500);
-}
+  }
+
+  const eliminarGasto = id=>{
+    const gastosActualizados = gastos.filter(gasto => gasto.id !== id);
+    setGastos(gastosActualizados);
+  }
 
   return (
     <div className={modal ? 'fijar':''}>
@@ -65,7 +78,7 @@ function App() {
         {isValidPresupuesto && (
           <>
             <main>
-              <ListadoGastos gastos={gastos} setGastoEditar={setGastoEditar}/>
+              <ListadoGastos gastos={gastos} setGastoEditar={setGastoEditar} eliminarGasto={eliminarGasto}/>
             </main>
             <div className='nuevo-gasto'>
               <img
@@ -77,7 +90,7 @@ function App() {
           </>
         )}
       
-      {modal && <Modal setModal={setModal} animarModal={animarModal} gastoEditar={gastoEditar} setAnimarModal={setAnimarModal} guardarGasto={guardarGasto}/>}
+      {modal && <Modal setModal={setModal} setGastoEditar={setGastoEditar} animarModal={animarModal} gastoEditar={gastoEditar} setAnimarModal={setAnimarModal} guardarGasto={guardarGasto}/>}
     </div>
   )
 }
