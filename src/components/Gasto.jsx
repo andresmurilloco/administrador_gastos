@@ -43,7 +43,9 @@ export const Gasto = ({gasto, setGastoEditar, eliminarGasto}) => {
     )
     const trailingActions=()=>(
       <TrailingActions>
-        <SwipeAction destructive={true} onClick={()=>eliminarGasto(id)}>
+        /* Destructive está eliminando el registro siguiente al que se desea eliminar.
+        Deshabilitado temporalmente. */
+        <SwipeAction onClick={()=>eliminarGasto(id)} /* destructive={true} */>
           Eliminar
         </SwipeAction>
       </TrailingActions>

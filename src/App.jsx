@@ -44,6 +44,7 @@ function App() {
       //Actualizar
       const gastosActualizados = gastos.map(gastoState => gastoState.id === gasto.id ? gasto : gastoState);
       setGastos(gastosActualizados);
+      setGastoEditar({})
     } else{
       //Nuevo
       gasto.id = generarId();
@@ -63,6 +64,7 @@ function App() {
 
   const eliminarGasto = id=>{
     const gastosActualizados = gastos.filter(gasto => gasto.id !== id);
+    console.log(gastosActualizados);
     setGastos(gastosActualizados);
   }
 
