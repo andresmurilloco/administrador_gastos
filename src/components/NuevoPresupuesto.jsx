@@ -2,6 +2,9 @@ import React from 'react'
 import { useState } from 'react'
 import Mensaje from './Mensaje';
 
+/* Componente que contiene lo relacionado con el presupuesto inicial.
+Considero usarlo al hacer click en editar presupuesto */
+
 const NuevoPresupuesto = ({
   presupuesto,
   setPresupuesto,

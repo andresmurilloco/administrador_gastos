@@ -233,7 +233,7 @@ header h1 {
 
 .nuevoPresupuestoBttn {
     border: none;
-    background-color: #db2777;
+    background-color: var(--azul);
     padding: 1rem;
     width: 100%;
     text-align: center;
@@ -245,7 +245,7 @@ header h1 {
     transition-duration: 300ms;
 }
 .nuevoPresupuestoBttn:hover {
-    background-color: #c71465;
+    background-color: #072b66;
     cursor: pointer;
 }
 
