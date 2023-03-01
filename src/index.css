@@ -231,6 +231,24 @@ header h1 {
     cursor: pointer;
 }
 
+.nuevoPresupuestoBttn {
+    border: none;
+    background-color: var(--azul);
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    color: var(--blanco);
+    text-transform: uppercase;
+    font-weight: 900;
+    border-radius: 1rem;
+    transition-property: background-color;
+    transition-duration: 300ms;
+}
+.nuevoPresupuestoBttn:hover {
+    background-color: #072b66;
+    cursor: pointer;
+}
+
 main {
     padding-top: 10rem;
 }

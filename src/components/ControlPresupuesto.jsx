@@ -27,6 +27,10 @@ const ControlPresupuesto = ({setIsValidPresupuesto, setPresupuesto, presupuesto,
         })
     }
 
+    const handleNuevoPresupuesto=()=>{
+        setIsValidPresupuesto(false);
+    }
+
     const handleReset=()=>{
         const resultado = confirm('Desea eliminar todos los registros?')
         if(resultado){
@@ -52,6 +56,7 @@ const ControlPresupuesto = ({setIsValidPresupuesto, setPresupuesto, presupuesto,
             />
         </div>
         <div className='contenido-presupuesto'>
+            <button className='nuevoPresupuestoBttn' onClick={handleNuevoPresupuesto}>Editar presupuesto</button>
             <button type='button' className=' reset-app' onClick={handleReset}>Reiniciar app</button>
             <p>
                 <span>Presupuesto: </span>{formatearCantidad(presupuesto)}
