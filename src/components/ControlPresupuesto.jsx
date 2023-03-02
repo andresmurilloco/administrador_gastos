@@ -20,10 +20,12 @@ const ControlPresupuesto = ({setIsValidPresupuesto, setPresupuesto, presupuesto,
         }, 1000);
     }, [gastos])
 
+    /* Se podría agregar una función de seleccionar currency por moneda y región. */
+
     const formatearCantidad = (cantidad)=>{
-        return cantidad.toLocaleString('en-US', {
+        return cantidad.toLocaleString('es-CO', {
             style:'currency',
-            currency: 'USD'
+            currency: 'COP'
         })
     }
 
