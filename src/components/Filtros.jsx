@@ -6,6 +6,7 @@ const Filtros = ({filtro, setFiltro}) => {
 
   const handlerNuevaCategoria=()=>{
     console.log('Funciona');
+    prompt('Ingrese la nueva categoría');
     /*Aquí se debe poner un localstore y asiganrlo a listaCat*/
   }
 
