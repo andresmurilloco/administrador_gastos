@@ -1,23 +1,25 @@
 import { useEffect, useState } from "react";
+import Categorias from "./Categorias";
 
 const Filtros = ({filtro, setFiltro}) => {
+  const [listaCat, setListaCat] = useState([]);
+
+  const handlerNuevaCategoria=()=>{
+    console.log('Funciona');
+    /*Aquí se debe poner un localstore y asiganrlo a listaCat*/
+  }
+
   return (
     <div className="filtros sombra contenedor">
         <form action="">
             <div className="campo">
-                <label>Filtrat Gastos</label>
+                <label>Filtrar Gastos</label>
                 <select onChange={e => setFiltro(e.target.value)}>
-                    <option value="">Todas las categorias</option>
-                    <option value="ahorro">Ahorro</option>
-                    <option value="comida">Comida</option>
-                    <option value="casa">Casa</option>
-                    <option value="gastos">Gastos Varios</option>
-                    <option value="ocio">Ocio</option>
-                    <option value="salud">Salud</option>
-                    <option value="suscripciones">Suscripciones</option>
+                    <Categorias listaCat = {listaCat}/>
                 </select>
             </div>
         </form>
+        <button className=" nuevoPresupuestoBttn " onClick={handlerNuevaCategoria} >Agregar nueva categoria</button>
     </div>
   )
 }
